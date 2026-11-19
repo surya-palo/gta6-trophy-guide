@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="The complete offline trophy guide and tracker for Grand Theft Auto VI on PlayStation 5: all 55 trophies, a roadmap to the platinum, missable warnings, and cited sources.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <h1>Leonida Trophy Guide</h1>
+      <p class="tagline">Grand Theft Auto VI &middot; PlayStation 5 &middot; all 55 trophies &middot; works fully offline</p>
+    </div>
+    <div class="stats" aria-label="Your progress">
+      <div class="stat"><span class="stat-num" id="stat-earned">0/55</span><span class="stat-label">earned</span></div>
+      <div class="stat"><span class="stat-num" id="stat-points">0</span><span class="stat-label">points</span></div>
+      <div class="stat"><span class="stat-num" id="stat-pct">0%</span><span class="stat-label">to platinum</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="stat-bar-wrap">
+        <div class="progress-fill" id="stat-bar" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#/checklist" data-tab="checklist">Checklist</a>
+    <a href="#/roadmap" data-tab="roadmap">Roadmap to Platinum</a>
+    <a href="#/missables" data-tab="missables">Missables</a>
+    <a href="#/save" data-tab="save">Save &amp; Export</a>
+  </nav>
+</header>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="toolbar">
+      <label class="search"><span class="sr">Search trophies</span>
+        <input id="q" type="search" placeholder="Search trophies…" autocomplete="off">
+      </label>
+      <label>Kind
+        <select id="f-kind">
+          <option value="">All kinds</option>
+          <option value="story">Story</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="activities">Activities</option>
+          <option value="missable">Missable</option>
+          <option value="platinum">Platinum</option>
+        </select>
+      </label>
+      <label>Grade
+        <select id="f-grade">
+          <option value="">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="f-status">
+          <option value="">All</option>
+          <option value="remaining">Remaining</option>
+          <option value="earned">Earned</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="f-spoiler"> Hide story spoilers</label>
+    </div>
+
+    <div class="nextup" id="nextup" aria-live="polite"></div>
+
+    <div class="columns">
+      <div class="list-col">
+        <p class="list-meta" id="list-meta"></p>
+        <ul class="trophy-list" id="trophy-list"></ul>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite">
+        <p class="detail-empty">Select a trophy to read its full guide, sources and progress counter.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">One playthrough is enough, and everything except one early meditation stays available after the story. Expect roughly 200 hours (PowerPyx) to 250–300+ hours (Push Square) for the platinum; difficulty about 4/10. Cheats disable trophies — and saving — so leave them alone.</p>
+    <div class="roadmap-stages" id="roadmap-stages"></div>
+    <h3>100% completion — the long pole</h3>
+    <p>The gold trophy <strong>A Long Road</strong> needs the 35-task 100% checklist, which opens after the story. PowerPyx estimates 100% is only about 60% of true completion. The big numbers: any 100 optional missions; 200 of 277 base-model vehicle scans; 100 of 255 animal studies; 15 of 18 meditation spots; 70 of 80 challenges; 300 of 397 stunts; 100 WAiNK scans; all robberies; all 8 bank vaults; all 39 gang operations; all underwater discoveries; all shooting-range golds; all drone races; all 15 Bret Target Decks.</p>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missables</h2>
+    <p class="lede">Good news: GTA VI is a very forgiving platinum. There is only <strong>one</strong> trophy that can be missed, and it takes a minute to secure.</p>
+    <div id="missable-list"></div>
+    <h3>Not missable — don't stress</h3>
+    <ul class="plain">
+      <li>All 12 story trophies unlock automatically and can never be missed.</li>
+      <li>Every stranger strand, questline, robbery, gang operation and collectible stays available in free roam after the story.</li>
+      <li>Kingpin Bowling's robbery respawns after a long time if you miss a valuable.</li>
+      <li>There is no mission replay, but nothing in the trophy list needs one.</li>
+    </ul>
+  </section>
+
+  <section id="view-save" class="view" hidden>
+    <h2>Save &amp; export</h2>
+    <p class="lede">Your checklist, counters and notes are saved automatically in this browser (localStorage). Nothing leaves your device. Export a backup file before clearing browser data, and import it on another machine to pick up where you left off.</p>
+    <div class="save-actions">
+      <button id="btn-export" type="button">Export progress (.json)</button>
+      <label class="btn-file">Import progress<input id="file-import" type="file" accept="application/json,.json" hidden></label>
+      <button id="btn-reset" type="button" class="danger">Reset all progress</button>
+    </div>
+    <p class="save-status" id="save-status" aria-live="polite"></p>
+    <h3>Your numbers</h3>
+    <dl class="numbers" id="save-numbers"></dl>
+    <h3>About this guide</h3>
+    <p>Unofficial fan guide. Not affiliated with Rockstar Games, Take-Two Interactive, Sony or PlayStation. Trophy names, descriptions and grades are as listed on PSN. Methods are cited per trophy from the guides below; where the community has not yet pinned an unlock down, the guide says so instead of guessing.</p>
+    <ul class="plain">
+      <li><a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a></li>
+      <li><a href="https://www.powerpyx.com/gta-6-100-completion-checklist-guide/">PowerPyx — GTA 6 100% Completion Checklist</a></li>
+      <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase — GTA 6 Trophy Guide &amp; Achievements List</a></li>
+      <li><a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles — Grand Theft Auto VI trophies</a></li>
+      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — Grand Theft Auto VI trophies</a></li>
+      <li><a href="https://sixshore.com/gta-6/guides/trophies-and-achievements/">sixshore — GTA 6 Trophy and Achievement List</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Trophy Guide — an unofficial fan-made offline guide for Grand Theft Auto VI (PS5). Trophy data: PSN. Methods: PowerPyx, GTABase, PSNProfiles, Exophase, sixshore — cited per trophy.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
